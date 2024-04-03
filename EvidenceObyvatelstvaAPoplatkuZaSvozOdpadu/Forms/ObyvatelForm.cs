@@ -28,7 +28,6 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu.Forms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            // Создание нового объекта Obyvatel
             Obyvatel newObyvatel = new Obyvatel
             {
                 Jmeno = txtJmeno.Text,
@@ -36,25 +35,19 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu.Forms
                 BytovaJednotkaId = int.Parse(txtIdBytovaJednotka.Text)
             };
 
-            // Добавление в список и вызов контроллера для создания
             obyvatele.Add(newObyvatel);
             obyvatelController.Create(newObyvatel);
 
-            // Очистка полей после создания
             txtJmeno.Text = "";
             txtPrijmeni.Text = "";
             txtIdBytovaJednotka.Text = "";
 
-            // Обновление списка
             UpdateList();
         }
 
         private void btnRead_Click(object sender, EventArgs e)
         {
-            // Вызов метода контроллера для получения списка
             obyvatele = obyvatelController.GetAll();
-
-            // Обновление списка
             UpdateList();
         }
 
@@ -62,21 +55,17 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu.Forms
         {
             if (listObyvatele.SelectedIndex != -1)
             {
-                // Получение выбранного объекта и обновление его значений
                 Obyvatel selectedObyvatel = obyvatele[listObyvatele.SelectedIndex];
                 selectedObyvatel.Jmeno = txtJmeno.Text;
                 selectedObyvatel.Prijmeni = txtPrijmeni.Text;
                 selectedObyvatel.BytovaJednotkaId = int.Parse(txtIdBytovaJednotka.Text);
 
-                // Вызов метода контроллера для обновления
                 obyvatelController.Update(selectedObyvatel.Id, selectedObyvatel);
 
-                // Очистка полей после обновления
                 txtJmeno.Text = "";
                 txtPrijmeni.Text = "";
                 txtIdBytovaJednotka.Text = "";
 
-                // Обновление списка
                 UpdateList();
             }
         }
@@ -85,19 +74,16 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu.Forms
         {
             if (listObyvatele.SelectedIndex != -1)
             {
-                // Удаление выбранного объекта из списка и вызов контроллера для удаления
                 Obyvatel selectedObyvatel = obyvatele[listObyvatele.SelectedIndex];
                 obyvatele.RemoveAt(listObyvatele.SelectedIndex);
                 obyvatelController.Delete(selectedObyvatel.Id);
 
-                // Обновление списка
                 UpdateList();
             }
         }
 
         private void UpdateList()
         {
-            // Очистка списка и добавление всех элементов из списка obyvatele
             listObyvatele.Items.Clear();
             foreach (var obyvatel in obyvatele)
             {

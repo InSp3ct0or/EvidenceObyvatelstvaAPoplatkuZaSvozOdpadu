@@ -28,30 +28,30 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu.Forms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            // Создание нового объекта ZaplacenePoplatky
+           
             ZaplacenePoplatky newZaplacenePoplatky = new ZaplacenePoplatky
             {
                 DatumUhrady = datePickerDatumUhrady.Value,
                 ObyvatelId = int.Parse(txtIdObyvatel.Text)
             };
 
-            // Добавление в список и вызов контроллера для создания
+            
             zaplacenePoplatky.Add(newZaplacenePoplatky);
             zaplacenePoplatkyController.Create(newZaplacenePoplatky);
 
-            // Очистка полей после создания
+            
             txtIdObyvatel.Text = "";
 
-            // Обновление списка
+            
             UpdateList();
         }
 
         private void btnRead_Click(object sender, EventArgs e)
         {
-            // Вызов метода контроллера для получения списка
+            
             zaplacenePoplatky = zaplacenePoplatkyController.GetAll();
 
-            // Обновление списка
+
             UpdateList();
         }
 
@@ -59,18 +59,18 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu.Forms
         {
             if (listZaplacenePoplatky.SelectedIndex != -1)
             {
-                // Получение выбранного объекта и обновление его значений
+                
                 ZaplacenePoplatky selectedZaplacenePoplatky = zaplacenePoplatky[listZaplacenePoplatky.SelectedIndex];
                 selectedZaplacenePoplatky.DatumUhrady = datePickerDatumUhrady.Value;
                 selectedZaplacenePoplatky.ObyvatelId = int.Parse(txtIdObyvatel.Text);
 
-                // Вызов метода контроллера для обновления
+               
                 zaplacenePoplatkyController.Update(selectedZaplacenePoplatky.Id, selectedZaplacenePoplatky);
 
-                // Очистка полей после обновления
+               
                 txtIdObyvatel.Text = "";
 
-                // Обновление списка
+                
                 UpdateList();
             }
         }
@@ -79,19 +79,19 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu.Forms
         {
             if (listZaplacenePoplatky.SelectedIndex != -1)
             {
-                // Удаление выбранного объекта из списка и вызов контроллера для удаления
+               
                 ZaplacenePoplatky selectedZaplacenePoplatky = zaplacenePoplatky[listZaplacenePoplatky.SelectedIndex];
                 zaplacenePoplatky.RemoveAt(listZaplacenePoplatky.SelectedIndex);
                 zaplacenePoplatkyController.Delete(selectedZaplacenePoplatky.Id);
 
-                // Обновление списка
+               
                 UpdateList();
             }
         }
 
         private void UpdateList()
         {
-            // Очистка списка и добавление всех элементов из списка zaplacenePoplatky
+            
             listZaplacenePoplatky.Items.Clear();
             foreach (var zaplacenePoplatky in zaplacenePoplatky)
             {

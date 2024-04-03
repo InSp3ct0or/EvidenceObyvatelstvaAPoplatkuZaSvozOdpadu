@@ -11,7 +11,7 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
         public int Id { get; set; }
         public string Jmeno { get; set; }
         public string Prijmeni { get; set; }
-        public int BytovaJednotkaId { get; set; } // Внешний ключ для связи с BytovaJednotka
+        public int BytovaJednotkaId { get; set; } 
     }
 }
 
