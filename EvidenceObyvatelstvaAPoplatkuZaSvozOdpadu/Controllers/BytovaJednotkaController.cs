@@ -28,12 +28,12 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
 
         public BytovaJednotka GetById(int id)
         {
-            return bytoveJednotky.FirstOrDefault(b => b.Id == id);
+            return bytoveJednotky.FirstOrDefault(b => b.BytovaJednotkaId == id);
         }
 
         public void Update(int id, BytovaJednotka updatedBytovaJednotka)
         {
-            var existingBytovaJednotka = bytoveJednotky.FirstOrDefault(b => b.Id == id);
+            var existingBytovaJednotka = bytoveJednotky.FirstOrDefault(b => b.BytovaJednotkaId == id);
             if (existingBytovaJednotka != null)
             {
                 existingBytovaJednotka.Adresa = updatedBytovaJednotka.Adresa;
@@ -43,7 +43,7 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
 
         public void Delete(int id)
         {
-            var existingBytovaJednotka = bytoveJednotky.FirstOrDefault(b => b.Id == id);
+            var existingBytovaJednotka = bytoveJednotky.FirstOrDefault(b => b.BytovaJednotkaId == id);
             if (existingBytovaJednotka != null)
             {
                 bytoveJednotky.Remove(existingBytovaJednotka);

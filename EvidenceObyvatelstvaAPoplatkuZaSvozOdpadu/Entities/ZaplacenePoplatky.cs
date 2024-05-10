@@ -10,9 +10,9 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
 {
     public class ZaplacenePoplatky
     {
-        public int Id { get; set; } 
+        
         public int RokPoplatku { get; set; }
-        public int ObyvatelId { get; set; } 
+        public int Id { get; set; } 
         public DateTime DatumUhrady { get; set; }
     }
 }

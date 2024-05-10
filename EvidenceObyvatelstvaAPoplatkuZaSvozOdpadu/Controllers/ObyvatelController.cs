@@ -29,12 +29,12 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
 
         public Obyvatel GetById(int id)
         {
-            return obyvatele.FirstOrDefault(o => o.Id == id);
+            return obyvatele.FirstOrDefault(o => o.ObyvatelId == id);
         }
 
         public void Update(int id, Obyvatel updatedObyvatel)
         {
-            var existingObyvatel = obyvatele.FirstOrDefault(o => o.Id == id);
+            var existingObyvatel = obyvatele.FirstOrDefault(o => o.ObyvatelId == id);
             if (existingObyvatel != null)
             {
                 existingObyvatel.Jmeno = updatedObyvatel.Jmeno;
@@ -45,7 +45,7 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
 
         public void Delete(int id)
         {
-            var existingObyvatel = obyvatele.FirstOrDefault(o => o.Id == id);
+            var existingObyvatel = obyvatele.FirstOrDefault(o => o.ObyvatelId == id);
             if (existingObyvatel != null)
             {
                 obyvatele.Remove(existingObyvatel);

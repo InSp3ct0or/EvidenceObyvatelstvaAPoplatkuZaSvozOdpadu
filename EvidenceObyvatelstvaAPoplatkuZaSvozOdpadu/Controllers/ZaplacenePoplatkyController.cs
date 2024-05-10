@@ -27,12 +27,12 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
 
         public ZaplacenePoplatky GetById(int id)
         {
-            return zaplacenePoplatky.FirstOrDefault(z => z.ObyvatelId == id);
+            return zaplacenePoplatky.FirstOrDefault(z => z.Id == id);
         }
 
         public void Update(int id, ZaplacenePoplatky updatedZaplacenePoplatky)
         {
-            var existingZaplacenePoplatky = zaplacenePoplatky.FirstOrDefault(z => z.ObyvatelId == id);
+            var existingZaplacenePoplatky = zaplacenePoplatky.FirstOrDefault(z => z.Id == id);
             if (existingZaplacenePoplatky != null)
             {
                 existingZaplacenePoplatky.RokPoplatku = updatedZaplacenePoplatky.RokPoplatku;
@@ -42,7 +42,7 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
 
         public void Delete(int id)
         {
-            var existingZaplacenePoplatky = zaplacenePoplatky.FirstOrDefault(z => z.ObyvatelId == id);
+            var existingZaplacenePoplatky = zaplacenePoplatky.FirstOrDefault(z => z.Id == id);
             if (existingZaplacenePoplatky != null)
             {
                 zaplacenePoplatky.Remove(existingZaplacenePoplatky);

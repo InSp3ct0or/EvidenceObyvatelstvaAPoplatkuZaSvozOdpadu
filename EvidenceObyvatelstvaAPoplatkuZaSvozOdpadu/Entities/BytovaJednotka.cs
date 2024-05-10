@@ -9,7 +9,7 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
     public class BytovaJednotka
     {
         
-        public int Id { get; set; }
+        public int BytovaJednotkaId { get; set; }
         public string Adresa { get; set; }
         public decimal VyskaPoplatkuZaObyvatele { get; set; } 
     }

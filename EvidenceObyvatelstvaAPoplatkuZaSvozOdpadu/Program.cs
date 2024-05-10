@@ -17,7 +17,7 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BytovaJednotkaForm());
+            Application.Run(new MainForm());
         }
     }
 }
