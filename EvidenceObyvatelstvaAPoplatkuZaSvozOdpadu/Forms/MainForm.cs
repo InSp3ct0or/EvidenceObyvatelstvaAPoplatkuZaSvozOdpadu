@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -13,34 +14,48 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu.Forms
 {
     public partial class MainForm : Form
     {
+        private string connectionString = @"Data Source=C:\Users\Volodymyr\Source\Repos\EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu\EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu\DataBase\DataBase.db;Version=3;";
+
         public MainForm()
         {
             InitializeComponent();
-            CreateColumns(ZaplacenePoplatkyDataGridView, typeof(ZaplacenePoplatky));
-            CreateColumns(BytovaJednotkaDataGridView, typeof(BytovaJednotka));
-            CreateColumns(ObyvatelDataGridView, typeof(Obyvatel));
+      
+            FillDataGridView(ZaplacenePoplatkyDataGridView, "SELECT * FROM ZaplacenePoplatky");
+            FillDataGridView(BytovaJednotkaDataGridView, "SELECT * FROM BytovaJednotka");
+            FillDataGridView(ObyvatelDataGridView, "SELECT * FROM Obyvatel");
+
+            // Привязка обработчиков событий выбора строки в DataGridView
+            ZaplacenePoplatkyDataGridView.SelectionChanged += DataGridView_SelectionChanged;
+            BytovaJednotkaDataGridView.SelectionChanged += DataGridView_SelectionChanged;
+            ObyvatelDataGridView.SelectionChanged += DataGridView_SelectionChanged;
         }
 
-
-        private void CreateColumns(DataGridView dataGridView, Type entityType)
+        private void DataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            // Очистка столбцов, если они уже были созданы
-            dataGridView.Columns.Clear();
-
-            // Получаем все свойства сущности
-            PropertyInfo[] properties = entityType.GetProperties();
-
-            // Добавляем столбцы в DataGridView на основе свойств сущности
-            foreach (PropertyInfo property in properties)
+            DataGridView dataGridView = (DataGridView)sender;
+            if (dataGridView.SelectedRows.Count > 0)
             {
-                dataGridView.Columns.Add(property.Name, property.Name);
+                // Получаем выбранную строку
+                DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+
+                // Заполнение textBox данными из выбранной строки
+                textBoxRokPoplatku.Text = selectedRow.Cells["RokPoplatku"].Value?.ToString();
+                textBoxObyvatelId.Text = selectedRow.Cells["ObyvatelId"].Value?.ToString();
+                textBoxDatumUhrady.Text = selectedRow.Cells["DatumUhrady"].Value?.ToString();
             }
         }
 
-        private void RokPoplatku_Click(object sender, EventArgs e)
+        private void FillDataGridView(DataGridView dataGridView, string query)
         {
-
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dataGridView.DataSource = dataTable;
+                }
+            }
         }
-
     }
 }

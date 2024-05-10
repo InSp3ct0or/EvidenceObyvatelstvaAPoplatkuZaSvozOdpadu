@@ -345,7 +345,7 @@
             RokPoplatku.Size = new Size(74, 15);
             RokPoplatku.TabIndex = 13;
             RokPoplatku.Text = "RokPoplatku";
-            RokPoplatku.Click += RokPoplatku_Click;
+           
             // 
             // textBoxDatumUhrady
             // 
