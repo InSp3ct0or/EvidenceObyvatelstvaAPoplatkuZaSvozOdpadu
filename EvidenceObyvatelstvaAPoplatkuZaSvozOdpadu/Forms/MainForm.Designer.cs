@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -29,6 +30,7 @@
         private void InitializeComponent()
         {
             BytovaJednotkaTabPage = new TabPage();
+            Update = new Button();
             EnterNameStreet = new Label();
             EnterNameStreetTextBox = new TextBox();
             EnterMonetaryAmount = new Label();
@@ -43,7 +45,8 @@
             ZaplacenePoplatkyDataGridView = new DataGridView();
             ZaplacenePoplatkyDeleteButton = new Button();
             MainFormTabControl = new TabControl();
-            Update = new Button();
+            Nezaplacene = new TabPage();
+            NezaplaceneDataGridView = new DataGridView();
             BytovaJednotkaTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BytovaJednotkaDataGridView).BeginInit();
             ObyvatelTabPage.SuspendLayout();
@@ -51,6 +54,8 @@
             ZaplacenePoplatkyTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ZaplacenePoplatkyDataGridView).BeginInit();
             MainFormTabControl.SuspendLayout();
+            Nezaplacene.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NezaplaceneDataGridView).BeginInit();
             SuspendLayout();
             // 
             // BytovaJednotkaTabPage
@@ -70,6 +75,16 @@
             BytovaJednotkaTabPage.TabIndex = 3;
             BytovaJednotkaTabPage.Text = "BytovaJednotka";
             BytovaJednotkaTabPage.UseVisualStyleBackColor = true;
+            // 
+            // Update
+            // 
+            Update.Location = new Point(195, 391);
+            Update.Name = "Update";
+            Update.Size = new Size(75, 23);
+            Update.TabIndex = 23;
+            Update.Text = "Update";
+            Update.UseVisualStyleBackColor = true;
+            Update.Click += UpdateButton_Click;
             // 
             // EnterNameStreet
             // 
@@ -199,21 +214,32 @@
             MainFormTabControl.Controls.Add(ZaplacenePoplatkyTabPage);
             MainFormTabControl.Controls.Add(ObyvatelTabPage);
             MainFormTabControl.Controls.Add(BytovaJednotkaTabPage);
+            MainFormTabControl.Controls.Add(Nezaplacene);
             MainFormTabControl.Location = new Point(12, 0);
             MainFormTabControl.Name = "MainFormTabControl";
             MainFormTabControl.SelectedIndex = 0;
             MainFormTabControl.Size = new Size(782, 448);
             MainFormTabControl.TabIndex = 0;
             // 
-            // Update
+            // Nezaplacene
             // 
-            Update.Location = new Point(195, 391);
-            Update.Name = "Update";
-            Update.Size = new Size(75, 23);
-            Update.TabIndex = 23;
-            Update.Text = "Update";
-            Update.UseVisualStyleBackColor = true;
-            Update.Click += UpdateButton_Click;
+            Nezaplacene.Controls.Add(NezaplaceneDataGridView);
+            Nezaplacene.Location = new Point(4, 24);
+            Nezaplacene.Name = "Nezaplacene";
+            Nezaplacene.Padding = new Padding(3);
+            Nezaplacene.Size = new Size(774, 420);
+            Nezaplacene.TabIndex = 4;
+            Nezaplacene.Text = "Nezaplacene";
+            Nezaplacene.UseVisualStyleBackColor = true;
+            // 
+            // NezaplaceneDataGridView
+            // 
+            NezaplaceneDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            NezaplaceneDataGridView.Location = new Point(6, 6);
+            NezaplaceneDataGridView.Name = "NezaplaceneDataGridView";
+            NezaplaceneDataGridView.RowTemplate.Height = 25;
+            NezaplaceneDataGridView.Size = new Size(762, 222);
+            NezaplaceneDataGridView.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -231,6 +257,8 @@
             ZaplacenePoplatkyTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ZaplacenePoplatkyDataGridView).EndInit();
             MainFormTabControl.ResumeLayout(false);
+            Nezaplacene.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)NezaplaceneDataGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -278,5 +306,7 @@
         private Label EnterNameStreet;
         private TextBox EnterNameStreetTextBox;
         private Button Update;
+        private TabPage Nezaplacene;
+        private DataGridView NezaplaceneDataGridView;
     }
 }
