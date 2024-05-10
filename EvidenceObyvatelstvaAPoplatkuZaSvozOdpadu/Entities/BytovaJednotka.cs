@@ -12,5 +12,6 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
         public int BytovaJednotkaId { get; set; }
         public string Adresa { get; set; }
         public decimal VyskaPoplatkuZaObyvatele { get; set; } 
+
     }
 }

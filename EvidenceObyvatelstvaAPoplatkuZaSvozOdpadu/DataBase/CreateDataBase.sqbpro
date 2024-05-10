@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\Volodymyr\source\repos\EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu\EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu\DataBase\DataBase.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1223"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainObyvatel"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="BytovaJednotka" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="112"/><column index="3" value="184"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Obyvatel" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="79"/><column index="2" value="73"/><column index="3" value="67"/><column index="4" value="126"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">DELETE FROM BytovaJednotka;
+DELETE FROM Obyvatel;
+DELETE FROM ZaplacenePoplatky;
+
+INSERT INTO BytovaJednotka (Adresa, VyskaPoplatkuZaObyvatele) VALUES
+('123 Main St', 100.50),
+('456 Elm St', 85.75),
+('789 Oak St', 120.00),
+('321 Pine St', 95.25),
+('654 Maple St', 110.75),
+('987 Cedar St', 105.00),
+('234 Birch St', 90.25),
+('567 Walnut St', 115.50),
+('890 Chestnut St', 80.75),
+('432 Spruce St', 125.25),
+('765 Fir St', 95.00),
+('098 Pineapple St', 130.00),
+('876 Coconut St', 75.25),
+('543 Banana St', 140.50),
+('210 Apple St', 70.75),
+('789 Orange St', 150.25),
+('654 Lemon St', 65.00),
+('321 Lime St', 160.00),
+('098 Grape St', 60.25),
+('765 Cherry St', 170.50);
+
+INSERT INTO Obyvatel (Jmeno, Prijmeni, BytovaJednotkaId) VALUES
+('John', 'Doe', 1),
+('Jane', 'Doe', 2),
+('Michael', 'Smith', 3),
+('Jennifer', 'Johnson', 4),
+('William', 'Brown', 5),
+('Jessica', 'Miller', 6),
+('David', 'Davis', 7),
+('Sarah', 'Wilson', 8),
+('James', 'Moore', 9),
+('Linda', 'Taylor', 10),
+('Robert', 'Anderson', 11),
+('Karen', 'Thomas', 12),
+('Matthew', 'Jackson', 13),
+('Amanda', 'White', 14),
+('Christopher', 'Harris', 15),
+('Laura', 'Martinez', 16),
+('Daniel', 'Thompson', 17),
+('Ashley', 'Garcia', 18),
+('Joshua', 'Lee', 19),
+('Emily', 'Young', 20);
+
+INSERT INTO ZaplacenePoplatky (RokPoplatku, DatumUhrady) VALUES
+(2021, NULL),
+(2022, '2022-01-15'),
+(2023, NULL),
+(2024, '2024-05-01'),
+(2025, NULL),
+(2026, '2026-03-10'),
+(2027, NULL),
+(2028, '2028-11-20'),
+(2029, NULL),
+(2030, '2030-09-05'),
+(2031, NULL),
+(2032, '2032-07-18'),
+(2033, NULL),
+(2034, '2034-04-22'),
+(2035, NULL),
+(2036, '2036-02-03'),
+(2037, NULL),
+(2038, '2038-10-12'),
+(2039, NULL),
+(2040, '2040-08-27');
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

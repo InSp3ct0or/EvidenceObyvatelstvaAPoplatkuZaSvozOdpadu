@@ -14,5 +14,6 @@ namespace EvidenceObyvatelstvaAPoplatkuZaSvozOdpadu
         public int RokPoplatku { get; set; }
         public int Id { get; set; } 
         public DateTime DatumUhrady { get; set; }
+        public int BytovaJednotkaId { get; set; }
     }
 }
